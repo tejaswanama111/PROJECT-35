@@ -13,6 +13,9 @@ function setup() {
   dog.addImage(dogImg);
   dog.scale= 0.3;
 
+  reset = createButton('Reset');
+  reset.position(770,70)
+
   database = firebase.database();
   
   foodStock = database.ref('Food');
@@ -29,6 +32,10 @@ function draw() {
     dog.addImage(happyDog);
   }
 
+  reset.mousePressed(()=>{
+    updateFood(20);
+  });
+
   drawSprites();
 
   textSize(17);
@@ -38,6 +45,12 @@ function draw() {
 
 function readStock(data){
   foodS = data.val();
+}
+
+function updateFood(food){
+  database.ref('/').update({
+    Food : food
+  });
 }
 
 function writeStock(x){
