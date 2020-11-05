@@ -33,7 +33,7 @@ function draw() {
 
   textSize(17);
   fill("white");
-  text("Food Remaining : " + foodStock, 10,50);
+  text("Food Remaining : " + foodS, 10,50);
 }
 
 function readStock(data){
